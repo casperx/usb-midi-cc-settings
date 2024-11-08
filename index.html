@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>USB MIDI Expression</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+
+    <link rel="stylesheet" href="/src/css/index.css" />
+
+    <script type="module" src="/src/js/components/signal-viewer.ts"></script>
+    <script type="module" src="/src/js/components/mapping-editor.ts"></script>
+
+    <script type="module" src="/src/js/index.ts"></script>
+  </head>
+
+  <body>
+    <div id="panel" class="flex">
+      <div id="graphs" class="flex col gap">
+        <div class="flex gap">
+          <button id="connect">Connect</button>
+        </div>
+
+        <signal-viewer id="mapped-view" class="fill"></signal-viewer>
+      </div>
+
+      <div id="settings" class="flex col gap">
+        <div class="flex gap spread">
+          <button id="save" disabled>Save</button>
+
+          <div class="flex gap">
+            <button id="import">Import</button>
+            <button id="export">Export</button>
+          </div>
+        </div>
+
+        <div class="midi-setting">
+          <b>MIDI</b>
+          <div class="flex gap">
+            <div>
+              <span>Channel number</span>
+              <input type="number" id="midi-chan-num" value="0" min="0" max="15">
+            </div>
+            <button id="apply-midi-chan-num" disabled>Apply</button>
+          </div>
+          <div class="flex gap">
+            <div>
+              <span>Controller number</span>
+              <input type="number" id="midi-ctrl-num" value="0" min="0" max="127">
+            </div>
+            <button id="apply-midi-ctrl-num" disabled>Apply</button>
+          </div>
+        </div>
+
+        <div class="setting">
+          <b>Input</b>
+          <div class="flex gap">
+            <div>
+              <span>Min</span>
+              <input type="range" id="in-min-slide" value="1500000" min="0" max="8388607" step="500">
+            </div>
+            <span id="in-min-text"></span>
+          </div>
+          <div class="flex gap">
+            <div>
+              <span>Max</span>
+              <input type="range" id="in-max-slide" value="3874000" min="0" max="8388607" step="500">
+            </div>
+            <span id="in-max-text"></span>
+          </div>
+
+          <b>Output</b>
+          <div class="flex gap">
+            <div>
+              <span>Min</span>
+              <input type="range" id="out-min-slide" value="0" min="0" max="127">
+            </div>
+            <span id="out-min-text"></span>
+          </div>
+          <div class="flex gap">
+            <div>
+              <span>Max</span>
+              <input type="range" id="out-max-slide" value="127" min="0" max="127">
+            </div>
+            <span id="out-max-text"></span>
+          </div>
+        </div>
+
+        <b>Mapping</b>
+        <mapping-editor id="mapping-edit"></mapping-editor>
+        <div>
+          <button id="apply-map" disabled>Apply</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
