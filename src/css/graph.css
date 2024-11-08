@@ -1,0 +1,12 @@
+#graphs {
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  > .fill {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+
+    min-height: 0;
+  }
+}

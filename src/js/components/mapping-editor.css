@@ -1,0 +1,33 @@
+svg {
+  width: 100%;
+  height: 100%;
+
+  transform: scaleY(-1);
+
+  > .grid {
+    stroke: hsl(0 0 30);
+    stroke-width: 0.8;
+  }
+
+  > .graph {
+    > .lines {
+      stroke: hsl(90 75 40);
+
+      cursor: crosshair;
+    }
+
+    > .dots {
+      fill: hsl(60 75 50);
+
+      > .edit {
+        cursor: pointer;
+      }
+    }
+
+    > .shows {
+      stroke: hsl(0 0 80);
+      stroke-width: 1;
+      stroke-dasharray: 2 2;
+    }
+  }
+}
