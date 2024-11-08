@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  font-family: sans-serif;
+}
+
+input,
+button,
+select {
+  font: inherit;
+}
+
+canvas {
+  display: block;
+}
+
+.fit {
+  width: 100%;
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.spread {
+  justify-content: space-between;
+}
+
+.gap {
+  gap: 10px;
+}

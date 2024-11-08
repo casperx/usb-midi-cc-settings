@@ -1,0 +1,20 @@
+@import url("./util.css");
+
+@import url("./graph.css");
+@import url("./setting.css");
+
+html,
+body,
+#modal {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+}
+
+#panel {
+  min-height: 100%;
+  gap: 10px;
+}

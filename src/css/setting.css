@@ -1,0 +1,51 @@
+#settings {
+  > .midi-setting {
+    display: contents;
+
+    > div {
+      > div {
+        display: contents;
+
+        > span {
+          width: 150px;
+        }
+
+        > input {
+          width: 80px;
+        }
+      }
+
+      align-items: baseline;
+    }
+  }
+
+  > .setting {
+    display: contents;
+
+    > div {
+      > div {
+        display: contents;
+
+        > span {
+          width: 30px;
+        }
+
+        > input {
+          flex: 1;
+        }
+      }
+
+      > span {
+        width: 70px;
+      }
+    }
+  }
+
+  > #mapping-edit {
+    width: 400px;
+    height: 400px;
+
+    touch-action: none;
+    user-select: none;
+  }
+}
