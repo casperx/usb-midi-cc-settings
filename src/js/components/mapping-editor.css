@@ -11,13 +11,13 @@ svg {
 
   > .graph {
     > .lines {
-      stroke: hsl(90 75 40);
+      stroke: var(--line-color);
 
       cursor: crosshair;
     }
 
     > .dots {
-      fill: hsl(60 75 50);
+      fill: var(--dot-color);
 
       > .edit {
         cursor: pointer;
