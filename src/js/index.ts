@@ -179,7 +179,9 @@ const enum Request {
   setControllerNum,
 
   saveConfig,
-  getConfig
+  getConfig,
+
+  dump
 }
 
 const enum Response {
@@ -308,7 +310,6 @@ connectBtnEl.addEventListener(
       )
 
       await dev.open()
-      await dev.reset()
     }
     catch (err) {
       console.error('open dev', err)
@@ -335,6 +336,16 @@ connectBtnEl.addEventListener(
       )
     )
 
+    const pinger = () => pipe.write(
+      new Uint8Array(
+        [Request.dump]
+      )
+    )
+
+    await pinger()
+
+    const pingHandle = setInterval(pinger, 1000)
+
     mappedViewer.resetTick()
 
     try {
@@ -345,6 +356,8 @@ connectBtnEl.addEventListener(
     }
 
     disableEls(true)
+
+    clearInterval(pingHandle)
   }
 )
 
