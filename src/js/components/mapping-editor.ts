@@ -72,7 +72,13 @@ const populate = (): TreeFragment => [
         ]
       ),
       dom(
-        'g', {class: 'graph'}, [
+        'g', {
+          class: 'graph',
+          style: {
+            '--line-color': 'hsl(90 75 40)',
+            '--dot-color': 'hsl(60 75 50)'
+          }
+        }, [
           dom(
             'g', {class: 'shows'}, [
               dom('line', {class: 'in'}),
@@ -226,6 +232,31 @@ export class MappingEditorElement extends HTMLElement {
       }
     )
   }
+
+  get lineColor() {
+    const {style} = this.#graphEl
+
+    return style.getPropertyValue('--line-color')
+  }
+
+  set lineColor(color: string) {
+    const {style} = this.#graphEl
+
+    style.setProperty('--line-color', color)
+  }
+
+  get dotColor() {
+    const {style} = this.#graphEl
+
+    return style.getPropertyValue('--dot-color')
+  }
+
+  set dotColor(color: string) {
+    const {style} = this.#graphEl
+
+    style.setProperty('--dot-color', color)
+  }
+
 
   #maps: Array<Mapping> = []
 
