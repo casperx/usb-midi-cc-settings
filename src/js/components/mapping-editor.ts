@@ -37,9 +37,9 @@ const clamp = (min: number, max: number, val: number) => {
 const populate = (): TreeFragment => [
   dom('link', {rel: 'stylesheet', href: cssUrl}),
   dom(
-    'svg', null, [
+    'svg', void 0, [
       dom(
-        'defs', null, [
+        'defs', void 0, [
           dom(
             'g', {id: 'dot'}, [
               dom('circle', {cx: '0', cy: '0', r: '20', fill: 'transparent'}),
