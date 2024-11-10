@@ -93,8 +93,6 @@ export class SignalViewerElement extends HTMLElement {
         ctx.lineJoin = 'round'
         ctx.lineCap = 'round'
 
-        ctx.font = '16px monospace'
-
         this.draw()
       }
     )
@@ -188,7 +186,30 @@ export class SignalViewerElement extends HTMLElement {
 
     const channels = this.#channels, capacity = this.#capacity, count = this.#count
 
-    if (count === 0) return
+    if (count === 0) {
+      const text = 'no data'
+
+      ctx.font = 'italic 24px sans-serif'
+
+      const {
+        fontBoundingBoxAscent,
+        fontBoundingBoxDescent,
+        actualBoundingBoxLeft,
+        actualBoundingBoxRight
+      } = ctx.measureText(text)
+
+      const w = actualBoundingBoxLeft + actualBoundingBoxRight
+      const h = fontBoundingBoxAscent + fontBoundingBoxDescent
+
+      ctx.fillStyle = 'hsl(0 0 65)'
+
+      ctx.textAlign = 'left'
+      ctx.textBaseline = 'top'
+
+      ctx.fillText(text, (offsetWidth - w) / 2, (offsetHeight - h) / 2)
+
+      return
+    }
 
     const len = Math.min(capacity, count)
 
@@ -354,6 +375,8 @@ export class SignalViewerElement extends HTMLElement {
       const valMaxGridDisp = formatNum(valMaxGrid)
 
       ctx.fillStyle = 'hsl(0 0 65)'
+
+      ctx.font = '16px monospace'
 
       ctx.textAlign = 'start'
       ctx.textBaseline = 'bottom'
